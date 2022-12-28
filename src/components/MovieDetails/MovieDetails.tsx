@@ -18,6 +18,7 @@ const MovieDetails = (): JSX.Element => {
       };
       fetchMovie();
     }
+    // eslint-disable-next-line
   }, []);
 
   if (!selectedMovie) {

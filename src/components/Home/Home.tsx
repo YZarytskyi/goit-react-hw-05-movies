@@ -15,6 +15,7 @@ const Home = () => {
       setTrendingMovies(data);
     };
     fetchMovies();
+    // eslint-disable-next-line
   }, []);
 
   return (
