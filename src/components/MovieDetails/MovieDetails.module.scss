@@ -1,0 +1,84 @@
+.movieContainer {
+  display: grid;
+  grid-template-areas:
+    'i o'
+    'a a';
+  grid-template-columns: 350px 1fr;
+  column-gap: 5rem;
+  row-gap: 2rem;
+  margin-top: 4rem;
+}
+
+.movieImgContainer {
+  grid-area: i;
+}
+
+.overviewContainer {
+  grid-area: o;
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  > span {
+    color: rgb(16, 98, 250);
+  }
+}
+
+.rating {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  > span {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    background-color: rgb(16, 98, 250);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+}
+
+.genres {
+  margin-bottom: 3.5rem;
+  font-size: 1.3rem;
+  > span {
+    margin-left: 0.3rem;
+    font-size: 1.2rem;
+    color: rgb(110, 161, 255);
+  }
+}
+
+.overviewHeader {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.overview {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.additionalInfoContainer {
+  grid-area: a;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.additionalInfo {
+  font-size: 1.5rem;
+}
+
+.linksList {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.link {
+  padding: 0.3rem 1rem;
+  background-color: rgb(56, 56, 255);
+  border-radius: 7px;
+}

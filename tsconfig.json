@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
-    // "annotateForClosureCompiler": false,
     "allowJs": true,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -16,6 +15,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "declarations.d.ts", "Types", "src/components/ContactsList/.tsx"],
+  "include": ["src", "declarations.d.ts", "Types", "src/components/ContactsList/.tsx", "declaration.d.ts"],
   "exclude": ["node_modules", "build"]
 }

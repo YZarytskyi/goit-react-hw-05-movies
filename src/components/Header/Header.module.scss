@@ -1,0 +1,19 @@
+header {
+  background-color: rgb(8, 8, 8);
+  color: rgb(236, 236, 236);
+}
+
+.navList {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.link {
+  padding: 1.3rem;
+}
+
+.activeLink {
+  padding: 1.3rem;
+  color: aqua;
+  text-decoration: underline;
+}
