@@ -3,6 +3,7 @@ import { getTrendingMovies } from '../../api/api';
 import { IMovie } from '../../types/types';
 import { Link } from 'react-router-dom';
 import s from './Home.module.scss';
+import { handleImageError } from '../../utils/imageErrorHandler';
 
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -29,6 +30,7 @@ const Home = () => {
                 src={`${IMAGE_BASE_URL}${movie.poster_path}`}
                 alt={movie.title}
                 className={s.movieImg}
+                onError={handleImageError}
               />
               <p className={s.movieTitle}>{movie.title}</p>
             </Link>

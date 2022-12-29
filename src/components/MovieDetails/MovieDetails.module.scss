@@ -7,6 +7,7 @@
   column-gap: 5rem;
   row-gap: 2rem;
   margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .movieImgContainer {
@@ -80,5 +81,13 @@
 .link {
   padding: 0.3rem 1rem;
   background-color: rgb(56, 56, 255);
+  border-radius: 7px;
+}
+
+.activeLink {
+  padding: 0.3rem 1rem;
+  background-color: aqua;
+  color: black;
+  font-weight: 600;
   border-radius: 7px;
 }

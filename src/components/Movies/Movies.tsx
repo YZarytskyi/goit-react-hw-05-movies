@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getMoviesByQuery } from '../../api/api';
 import { IMovie } from '../../types/types';
+import { handleImageError } from '../../utils/imageErrorHandler';
 import { IMAGE_BASE_URL } from '../Home/Home';
 import s from './Movies.module.scss';
 
@@ -54,6 +55,7 @@ const Movies = () => {
                   src={`${IMAGE_BASE_URL}${movie.poster_path}`}
                   alt={movie.title}
                   className={s.movieImg}
+                  onError={handleImageError}
                 />
                 <p className={s.movieTitle}>{movie.title}</p>
               </Link>

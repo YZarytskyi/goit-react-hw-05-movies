@@ -35,3 +35,21 @@ export const getMovieById = async (id: number) => {
     console.log(error)
   }
 }
+
+export const getCastById = async (id: number) => {
+  try {
+    const { data } = await axios.get(`/movie/${id}/credits`);
+    return data.cast;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getReviewsById = async (id: number) => {
+  try {
+    const { data } = await axios.get(`/movie/${id}/reviews`);
+    return data.results;
+  } catch (error) {
+    console.log(error)
+  }
+}

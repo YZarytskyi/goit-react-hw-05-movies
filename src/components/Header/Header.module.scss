@@ -13,7 +13,19 @@ header {
 }
 
 .activeLink {
+  position: relative;
   padding: 1.3rem;
   color: aqua;
-  text-decoration: underline;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    width: 80%;
+    height: 3px;
+    display: block;
+    border-radius: 5px;
+    background-color: rgb(59, 59, 255);
+    transform: translateX(-50%);
+  }
 }

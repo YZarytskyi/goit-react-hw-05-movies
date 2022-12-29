@@ -21,3 +21,22 @@ export interface IMovie {
   vote_average: number;
   vote_count: number;
 }
+
+export interface Actor {
+  id: number;
+  character: string;
+  name: string;
+  profile_path: string;
+}
+
+export interface Review {
+  id: string;
+  author_details: {}
+  author: string;
+  content: string;
+  created_at: string;
+}
+
+export interface OutletContext {
+  movieId: string;
+}

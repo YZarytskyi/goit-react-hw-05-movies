@@ -1,0 +1,23 @@
+.author {
+  margin-bottom: 1rem;
+  color: rgb(158, 117, 255);
+  font-weight: 600;
+  font-size: 1.4rem;
+  > span {
+    font-size: 1rem;
+    color: gray;
+  }
+}
+
+.content {
+  margin-bottom: 2rem;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.notFound {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgb(255, 72, 72);
+}
