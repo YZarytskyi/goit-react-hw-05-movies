@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { Spinner } from '../Spinner/Spinner';
 import s from './Layout.module.scss';
 
 const Layout = () => {
@@ -27,7 +29,9 @@ const Layout = () => {
         </nav>
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<Spinner />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );
