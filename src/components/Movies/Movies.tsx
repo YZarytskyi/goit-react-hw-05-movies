@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByQuery } from '../../api/api';
 import { IMovie } from '../../types/types';
 import { handleImageError } from '../../utils/imageErrorHandler';
@@ -7,8 +7,25 @@ import { IMAGE_BASE_URL } from '../Home/Home';
 import s from './Movies.module.scss';
 
 const Movies = () => {
-  const [query, setQuery] = useState<string>('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+
+  const [query, setQuery] = useState<string>(() => {
+    const currentQuery = searchParams.get('query');
+    return currentQuery || '';
+  });
   const [movies, setMovies] = useState<IMovie[]>([]);
+
+  useEffect(() => {
+    if (query) {
+      const fetchMovies = async () => {
+        const data = await getMoviesByQuery(query);
+        setMovies(data);
+      };
+      fetchMovies();
+    }
+    // eslint-disable-next-line
+  }, [searchParams]);
 
   const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = e => {
     setQuery(e.target.value);
@@ -19,8 +36,7 @@ const Movies = () => {
     if (!query) {
       return;
     }
-    const data = await getMoviesByQuery(query);
-    setMovies(data);
+    setSearchParams({ query });
   };
 
   return (
@@ -50,7 +66,11 @@ const Movies = () => {
         <ul className={s.moviesList}>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} className={s.link}>
+              <Link
+                to={`/movies/${movie.id}`}
+                state={location}
+                className={s.link}
+              >
                 <img
                   src={`${IMAGE_BASE_URL}${movie.poster_path}`}
                   alt={movie.title}

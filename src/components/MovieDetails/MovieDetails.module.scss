@@ -1,13 +1,23 @@
 .movieContainer {
   display: grid;
   grid-template-areas:
+    'b .'
     'i o'
     'a a';
   grid-template-columns: 350px 1fr;
   column-gap: 5rem;
   row-gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.goBackBtn {
+  grid-area: b;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
 }
 
 .movieImgContainer {

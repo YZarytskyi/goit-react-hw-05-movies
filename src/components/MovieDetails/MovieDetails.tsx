@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet, Link, useLocation } from 'react-router-dom';
 import { getMovieById } from '../../api/api';
 import { IMovie } from '../../types/types';
 import { handleImageError } from '../../utils/imageErrorHandler';
@@ -9,6 +9,7 @@ import s from './MovieDetails.module.scss';
 
 const MovieDetails = (): JSX.Element => {
   const { movieId } = useParams();
+  const location = useLocation();
 
   const [selectedMovie, setSelectedMovie] = useState<IMovie | null>(null);
 
@@ -23,15 +24,20 @@ const MovieDetails = (): JSX.Element => {
     // eslint-disable-next-line
   }, [movieId]);
 
+
   if (!selectedMovie) {
     return <Spinner />;
   }
 
   const genres = selectedMovie.genres.map(genre => genre.name).join(', ');
 
+  let goBackPath: string = '/movies';
+  goBackPath = `${location.state?.pathname}${location.state?.search}`
+
   return (
     <>
       <div className={`container ${s.movieContainer}`}>
+        <Link to={goBackPath} className={s.goBackBtn} >{'< Go Back'}</Link>
         <div className={s.movieImgContainer}>
           <img
             src={`${IMAGE_BASE_URL}${selectedMovie.poster_path}`}
